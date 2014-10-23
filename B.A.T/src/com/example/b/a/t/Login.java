@@ -11,18 +11,19 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 
 
-public class RegistroActivity extends Activity {
+public class Login extends Activity {
 	
-	private Button bt;
+	private Button btlogin,btregistro;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_registro);
+        setContentView(R.layout.activity_login);
        
         //IDENTIFICACIÓN
-        bt = (Button) findViewById(R.id.entrar);
+        btlogin = (Button) findViewById(R.id.login);
+        btregistro= (Button) findViewById(R.id.registrarse);
         //LISTENERS
-        bt.setOnClickListener(new OnClickListener() {
+        btlogin.setOnClickListener(new OnClickListener() {
 			
 			@Override
 			public void onClick(View v) {
@@ -30,13 +31,26 @@ public class RegistroActivity extends Activity {
 				
 			}
 		});
+        btregistro.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				lanzarRegistro();
+				
+			}
+		}); 
+        
     }
     private void lanzarMainActivity(){
     	Intent i = new Intent (this, MainActivity.class);
     	startActivity(i);
-    	
-    }
+    	}
 
+    private void lanzarRegistro(){
+    	Intent i = new Intent (this, Registro.class);
+    	startActivity(i);
+    	}
+    
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
